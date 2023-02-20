@@ -10,9 +10,13 @@
 <!-- replace with Segment snippet -->
 <!-- replace with Segment snippet -->
 <!-- replace with Segment snippet --> 
+​
+​
+//PLACE SEGMENT SCRIPT HERE
+​
   
   <style>
-
+​
 form  { display: table;      }
 p     { display: table-row;  }
 label { display: table-cell; width: 150px; padding: 5px 10px 5px 10px; text-align: right; }
@@ -24,7 +28,7 @@ input, select { display: table-cell; width: 150px;
 h3 { text-align: center; } 
 h1 { text-align: center; } 
     
-
+​
 .forms {
   border: 3px solid black;
   background-color: lightblue;
@@ -35,28 +39,28 @@ h1 { text-align: center; }
   width: 400px;
 }
     
-
+​
 body {
 font-family: Arial;
 font-size: 100%;
 width: 962px;
 padding: 30px;}
     
-
+​
 main{
 width: 360px;
 float: left;
 }
-
+​
 rside{
 width: 360px;
 float: right;
-
+​
 {
-
-
-
-
+​
+​
+​
+​
     
   </style>
   
@@ -70,8 +74,8 @@ float: right;
     
   <h1>Ralph's Simple Site</h1>
     
-
-
+​
+​
 <main>
 <div class="forms">
 <h3>Registration</h3>  
@@ -88,17 +92,17 @@ float: right;
        <label for="reg_email">Email</label>   
        <input type="text" id="reg_email" name="reg_email" placeholder="Email">
            </p>
-
+​
             <p>   
        <label for="reg_email">Phone</label>   
        <input type="text" id="reg_phone" name="reg_phone" placeholder="Phone">
            </p>
-
+​
             <p>   
        <label for="reg_email">User Id</label>   
        <input type="text" id="reg_user_id" name="reg_user_id" placeholder="user_id">
            </p>
-
+​
            <br>
            <p>
        <label for=""></label>   
@@ -179,8 +183,8 @@ var dd = String(today.getDate()).padStart(2, '0');
 var mm = String(today.getMonth() + 1).padStart(2, '0');
 var yyyy = String(today.getFullYear());
 today = mm + '/' + dd + '/' + yyyy ;
-
-
+​
+​
       
       
       
@@ -188,14 +192,14 @@ today = mm + '/' + dd + '/' + yyyy ;
       
      
    //Define UI varibales
-
+​
     const form_reg = document.querySelector('#registration-form');
     const reg_fname = document.querySelector('#reg_fname');
     const reg_lname = document.querySelector('#reg_lname');
     const reg_email = document.querySelector('#reg_email');  
     const reg_phone = document.querySelector('#reg_phone');  
     const reg_user_id = document.querySelector('#reg_user_id');  
-
+​
     const form_product = document.querySelector('#product-form');
     const product_product = document.querySelector('#product');
     const product_role = document.querySelector('#role');
@@ -207,7 +211,7 @@ today = mm + '/' + dd + '/' + yyyy ;
     const trial_contact = document.querySelector('#trial_contact');  
     const trial_email = document.querySelector('#trial_email'); 
             
-
+​
       //Add listeners
       form_reg.addEventListener('submit',addRegistration);
       form_product.addEventListener('submit',addProduct);
@@ -215,49 +219,45 @@ today = mm + '/' + dd + '/' + yyyy ;
       
       
      function addRegistration() {  
-       // add identify call
-   analytics.identify(reg_user_id.value, {
-     fname: reg_fname.value,
-     lname: reg_lname.value,
-     phone: reg_phone.value,
-     email: reg_email.value,
-     name: reg_fname.value + ' ' + reg_lname.value
-});
-        }
+           // add identify call
+         analytics.identify(reg_user_id.value, {
+            fname: reg_fname.value,
+            lname: reg_lname.value,
+            phone: reg_phone.value,
+            email: reg_email.value,
+            name: reg_fname.value + ' ' + reg_lname.value
+        });
+    }
       
  
       
      function addProduct() {  
        // add product info requested 
-analytics.track("Product Info Requested", {
-        product: product_product.value,
-        role: product_role.value,
-  "context": {
-    "traits" : {
-      "email": product_email.value
-    }
-  } 
-}
-       );
+        analytics.track("Product Info Requested", {
+                product: product_product.value,
+                role: product_role.value,
+        }, {"context": {
+                "traits" : {
+                    "email": product_email.value
+                }
+        }});
      }
    
        
-
+​
    function addTrial() {  
-       // add trial call
-      analytics.track("Trial Request", {
-     trial_product: trial_product.value,
-     trial_start_date: trial_start_date.value,
-          trial_request_date: today,
-         "context": {
-    "traits" : {
-       trial_contact: trial_contact.value,
-     email: trial_email.value
-    }
-  } 
-}     
-       );
-        }  
+        // add trial call
+        analytics.track("Trial Request", {
+            trial_product: trial_product.value,
+            trial_start_date: trial_start_date.value,
+            trial_request_date: today,
+        },{"context": {
+                "traits" : {
+                    trial_contact: trial_contact.value,
+                    email: trial_email.value
+                }
+        }});
+    }  
       
       </script>
       
@@ -304,9 +304,9 @@ trial_start_date: trial_start_date.value,<br>
      }<br>
   }<br>
  });<br>
-
+​
 </rside>
-
-
+​
+​
     </body>
 </html>
